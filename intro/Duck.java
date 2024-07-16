@@ -1,6 +1,6 @@
 public abstract class Duck {
-    FlyBehavior flyBehavior;
-    QuackBehavior quackBehavior;
+    FlyBehavior flyBehavior; //composition
+    QuackBehavior quackBehavior; //composition
 
     public Duck(){}
 
@@ -9,12 +9,20 @@ public abstract class Duck {
 
     //metodos concretos - herdados c essa implementaçao.
     public void performFly(){
-        flyBehavior.fly();
+        this.flyBehavior.fly();
     }
     public void performQuack(){
-        quackBehavior.quack();
+        this.quackBehavior.quack();
     }
     public void swim(){
         System.out.println("Todos patos flutuam!");
+    }
+
+    //metodos modificiadores
+    public void setFlyBehavior(FlyBehavior fb){
+        this.flyBehavior = fb;
+    }
+    public void setQuackBehavior(QuackBehavior qb){
+        this.quackBehavior = qb;       
     }
 }
